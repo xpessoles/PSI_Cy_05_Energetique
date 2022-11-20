@@ -51,6 +51,8 @@
 \fi
 
 \subsection*{Présentation}
+\ifprof
+\else
 Le chariot élévateur , objet de cette étude,  permet la manutention de bateaux de \SI{3000}{kg}
 à une hauteur de \SI{8}{m}. Il est principalement constitué :
 \begin{itemize}
@@ -99,6 +101,8 @@ Les liaisons sont parfaites. La chaîne est non dissipative. Le repère $\rep{3}
 \includegraphics[width=\linewidth]{fig_01}
 \end{center}
 
+\fi
+
 \question{Déterminer l’accélération galiléenne du bateau en fonction de l’effort fourni par le vérin et des caractéristiques du système. Expliquer qualitativement comment cette valeur peut permettre de valider l'exigence 103.}
 \ifprof
 \begin{corrige}
@@ -109,6 +113,10 @@ Les liaisons sont parfaites. La chaîne est non dissipative. Le repère $\rep{3}
 
 
 \subsection*{Phase de déplacement}
+
+\ifprof
+\else
+
 La zone de stockage des bateaux se situe nécessairement à une altitude supérieure à celle du quai de déchargement. Afin d’éviter le glissement du bateau lorsque le chariot descend une pente, un dispositif permet de maintenir les fourches horizontales durant le déplacement. Lors d’une phase de décélération, les fourches sont automatiquement inclinées vers l’arrière pour éviter le glissement du bateau. Ce mouvement, de faible amplitude, est assuré par l’asservissement des vérins d’inclinaison du tablier T1,T2 et T1’, T2’. Ce dispositif présente l’avantage de prendre en charge de manière entièrement automatisée l’un des mouvements du tablier. Le conducteur peut alors charger et mettre à l’eau le bateau sans avoir à gérer manuellement le mouvement d’inclinaison.
 La figure suivante permet de définir :
 \begin{itemize}
@@ -121,6 +129,7 @@ La figure suivante permet de définir :
 \begin{center}
 \includegraphics[width=\linewidth]{fig_02}
 \end{center}
+\fi
 
 
 \question{Quand le chariot circule à vitesse constante, quelle est la valeur de l’angle $\varphi(t)$ qui permet d’assurer le maintien de l’horizontalité des fourches ? Justifier.}
@@ -131,6 +140,8 @@ La figure suivante permet de définir :
 \fi
 
 
+\ifprof
+\else
 
 Nous considérons dans cette partie que le seul mouvement actif est le basculement.
 L’objectif est d’obtenir un modèle dynamique du mécanisme de basculement à partir de la modélisation plane proposée sur la figure suivante.
@@ -148,6 +159,7 @@ Les solides pris en compte pour l’étude sont :
 
 
 On pose $\vect{A_1B_1} = \left( \lambda_0+\lambda\right)\vect{z_{T2}}$. Le paramétrage est tel que si $\alpha=0$ alors $\lambda=0$.
+\fi
 
 %
 %

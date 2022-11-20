@@ -192,6 +192,8 @@ $\torseurstat{T}{\text{moteur}}{R_{\text{\text{1g}}}}
 \else
 \fi
 
+\ifprof
+\else
 
 Dans un premier temps, l’objectif est de déterminer la somme des efforts normaux $Z_{\text{2d}} + Z_{\text{2g}} $ s’exerçant sur les roues arrières. Isolons l’ensemble de la plate-forme PF, soit l’ensemble $\Sigma$, les roues centrales et les  motoréducteurs.
 Plaçons-nous dans le plan médian $\left( C_1, \vect{y_L}, \vect{z_L}\right)$ de la plate-forme PF . Nous définissons le projeté $I_1$ des points de
@@ -199,7 +201,7 @@ contact $I_{\text{1d}}$ et $I_{\text{1g}}$ dans ce plan. $I_1$ est défini par l
 $\vect{C_2I_1}=b\vect{y_L}-R\vect{z_L}$ et $\vect{C_3I_1}=-b\vect{y_3}-R\vect{z_L}$.
 Nous ferons l’hypothèse que le moment dynamique $\vectmd{I_1}{PF}{0} \cdot \vect{x_L}$
 est négligeable devant les actions mécaniques.
-
+\fi
 
 
 
@@ -248,11 +250,15 @@ Pour la question suivante, vous prendrez $J =\SI{34}{kg.m^2}$, $k_1=\SI{0,65}{m}
 \else
 \fi
 
+\ifprof
+\else
 
 \begin{center}
 \includegraphics[width=\linewidth]{fig_05}
 %\textit{Paramétrage}
 \end{center}
+
+\fi
 
 \ifprof
 %\end{multicols}
