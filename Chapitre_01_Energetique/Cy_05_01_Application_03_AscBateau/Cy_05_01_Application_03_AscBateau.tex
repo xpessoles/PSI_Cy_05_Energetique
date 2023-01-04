@@ -1,5 +1,5 @@
 %%%% Paramétrage du TD %%%%
-\def\xxactivite{ \ifprof \normalsize{Application 3 -- Corrigé } \else  \ifcolle Colle \else  Application 3\fi \fi} % \normalsize \vspace{-.4cm}
+\def\xxactivite{ \ifprof {Application 3 -- Corrigé } \else  \ifcolle Colle \else  Application 3\fi \fi} % \normalsize \vspace{-.4cm}
 \def\xxauteur{\textsl{Xavier Pessoles}}
 
 
@@ -106,6 +106,64 @@ Les liaisons sont parfaites. La chaîne est non dissipative. Le repère $\rep{3}
 \question{Déterminer l’accélération galiléenne du bateau en fonction de l’effort fourni par le vérin et des caractéristiques du système. Expliquer qualitativement comment cette valeur peut permettre de valider l'exigence 103.}
 \ifprof
 \begin{corrige}
+On isole l'ensemble : \{bateau ; S ; chaîne ; T12 ; T4\}. On applique le théorème de l'énergie cinétique à l’ensemble dans le référentiel terrestre supposé galiléen : 
+$\indice{P}{int}(E)+ \pext{\overline{E}}{E}{\rep{g}} = \deriv{\ec{E}{\rep{g}}}{}$.
+
+\begin{center}
+\includegraphics[width=5cm]{cor_01}
+\end{center} 
+
+
+\textbf{Relation cinématique :}
+
+
+\begin{itemize}
+	\item $\vectv{G}{S}{T_3}=V_B \vect{z}$ et $\vectv{G}{T_4}{T_{3}}=V_V \vect{z}$
+	\item $\vectv{G}{S}{T_3}=\vectv{G}{S}{T_{12}}+\vectv{G}{T_{12}}{T_{4}}+\vectv{G}{T_4}{T_{3}}$
+	\begin{itemize}
+	\item $\vectv{G}{S}{T_{12}}=\vectv{J}{S}{T_{12}}+\vect{GJ}\wedge\vecto{S}{T_{12}}=R\vect{x}\wedge \omega\left({T_{4}}/{T_{12}}\right) \vect{y}=R\omega\left({T_{4}}/{T_{12}}\right) \vect{z}$
+	\item $V_B=R\omega\left({T_{4}}/{T_{12}}\right)+V_V$
+	\end{itemize}
+	\item $\vectv{G}{S}{T_3}=\vectv{G}{S}{T_{12}}+\vectv{G}{T_{12}}{T_{3}}$
+	\begin{itemize}
+	\item $\vectv{G}{T_{12}}{T_{3}}=\vectv{I}{T_{12}}{T_{3}}+\vect{GI}\wedge\vecto{T_{12}}{T_{3}}=-R\vect{x}\wedge \omega\left({T_{12}}/{T_{4}}\right)\vect{y}=R\omega\left({T_{4}}/{T_{12}}\right) \vect{z}$
+	\item $V_B=R\omega\left({T_{4}}/{T_{12}}\right)+R\omega\left({T_{4}}/{T_{12}}\right)=2R\omega\left({T_{4}}/{T_{12}}\right)$
+\end{itemize}
+\item $V_B=V_B/2+V_V\Longleftrightarrow V_B=2V_V$ et $\omega\left({T_{4}}/{T_{12}}\right)=-\dfrac{V_B}{2R}$.	 
+\end{itemize}
+
+(Remarque : erreur de signe éventuelle sur $\omega\left({T_{12}}/{T_{4}}\right)$, non pénalisante pour la suite…)
+
+
+\textbf{Bilan des puissances extérieures :}
+\begin{itemize}
+\item $\pext{\text{pes}}{S}{\rep{g}}=\torseurl{-(m_S+m_B )g\vect{z}}{\vect{0}}{G_B} \otimes \torseurl{\vect{0}}{V_B \vect{z}}{G_B} = -(m_S+m_B )gV_B$;
+\item $\pext{\text{pes}}{T_4}{\rep{g}}=\torseurl{-m_T4 g\vect{z}}{\vect{0}}{G_{T_4}} \otimes \torseurl{\vect{0}}{V_V \vect{z}}{G_{T_4}}=-m_T4 gV_V=-\dfrac{1}{2} m_T4 gV_B$;
+\item $\pext{\text{pre}}{T_4}{\rep{g}}=\torseurl{F_V \vect{z}}{\vect{0}}{H} \otimes \torseurl{\vect{0}}{V_V \vect{z}}{G_B})=F_V V_V=\dfrac{1}{2}.F_V V_B$.
+\item $\pext{T_3}{T_4}{\rep{g}}=0$ : glissière et pivot glissant sans frottement
+\item $\pext{T_3}{12}{\rep{g}}=0 $: roulement sans glissement.
+\item $\pext{\overline{E}}{E}{\rep{g}}=V_B (\dfrac{1}{2}.F_V-\dfrac{1}{2} m_T4 g-(m_S+m_B )g)$
+\end{itemize}
+
+\textbf{Bilan des puissances intérieures :}
+\begin{itemize}
+\item $\pint{E}=0$.
+\end{itemize}
+
+\textbf{Calcul de l’énergie cinétique :}
+\begin{itemize}
+\item $\ec{S}{3}=\dfrac{1}{2} (m_S+m_B ) V_B^2$ (mouvement de translation du bateau par rapport au référentiel galiléen);
+\item $\ec{T_4}{3}=\dfrac{1}{2} m_T4 V_V^2=\dfrac{1}{8} m_T4 V_B^2$ (mouvement de translation du vérin par rapport au référentiel galiléen);
+\item $\ec{T_{12}}{3}=\dfrac{1}{2} J\omega(T_{12}/3)^2=\dfrac{1}{2}  \dfrac{JV_B^2}{4R^2}$ (mouvement de rotation et translation du solide 12 -- masse négligeable) (Remarque : le terme $1/4$ n’apparait pas sur le corrigé initial).
+\item $\ec{E}{3}=\dfrac{1}{2} (m_S+m_B+1/4 m_T4+J/(4R^2 )) V_B^2$
+\item $\deriv{E_c(t)}{}=\left(m_S+m_B+\dfrac{1}{4}m_T4+\dfrac{J}{4R^2 }\right) V_B \gamma$ et $\gamma=\deriv{V_B(t)}{}$.
+\end{itemize}
+
+Au final :
+$\left(m_S+m_B+\dfrac{1}{4} m_T4+\dfrac{J}{4R^2 }\right) V_B \gamma=V_B \left(\dfrac{1}{2}F_V-\dfrac{1}{2} m_T4 g-(m_S+m_B )g\right)$
+et 
+$\gamma =\dfrac{\dfrac{1}{2} F_V-\dfrac{1}{2} m_T4 g-(m_S+m_B )g}{m_S+m_B+1/4 m_T4+\dfrac{J}{4R^2}}$
+Cette valeur permet de valider l’exigence 1.1.3 car connaissant la vitesse de levage à atteindre en charge (cf. critère 1.1.2) et l'accélération, on peut connaître le temps du régime transitoire ( $t=\dfrac{\indice{V}{levage}}{\gamma}$).
 \end{corrige}
 \else
 \fi
@@ -135,6 +193,7 @@ La figure suivante permet de définir :
 \question{Quand le chariot circule à vitesse constante, quelle est la valeur de l’angle $\varphi(t)$ qui permet d’assurer le maintien de l’horizontalité des fourches ? Justifier.}
 \ifprof
 \begin{corrige}
+ Quand le chariot avance à vitesse constante ($\varphi_{dec}=0$), il faut que l'angle $\varphi(t)$ soit nul. Il faut donc envoyer une consigne  $\varphi_c = -\delta$.
 \end{corrige}
 \else
 \fi
@@ -169,80 +228,50 @@ On pose $\vect{A_1B_1} = \left( \lambda_0+\lambda\right)\vect{z_{T2}}$. Le param
 \question{En appliquant le théorème de l’énergie-puissance et en admettant que l’angle $\alpha$ est petit, montrer que $\alpha(t)$ et $p(t)$ sont liés par l’équation différentielle suivante :  $J_{\text{eq}}\ddot{\alpha}(t) + \mu \dot{\alpha}(t) =\dfrac{Sp(t)}{k}+m_{S_2}g x_{G_{S_2}}$. Exprimer $J_{\text{eq}}$.}
 \ifprof
 \begin{corrige}
+
+\begin{center}
+\includegraphics[width=5cm]{cor_02}
+\end{center} 
+
+
+	 On isole l'ensemble $E=\{S2 ; T2\}$. On applique le théorème de l’énergie cinétique à l’ensemble en mouvement dans le référentiel terrestre galiléen : 
+$\indice{P}{int}(E)+ \pext{\overline{E}}{E}{\rep{g}} = \deriv{\ec{E}{\rep{g}}}{}$
+
+	\textbf{Calcul des puissances externes :}
+\begin{itemize}
+\item $\pext{\text{pes}}{S_2}{1}=
+\torseurl{-m_{S_2 } g\vz{1}}{\vect{0}}{G_{S_2}} \otimes \torseurl{\vecto{S_2}{1}=\alphap\vy{1}}{\vectv{G_{S_2}}{S_2}{1} = -x_{G_{S_2}}\alphap\vect{z_{T_3}}+z_{G_{S_2}}\alphap\vect{x_{T_3}}}{G_{S_2}} $
+$ =(-m_{S_2 } g\vz{1})\cdot (-x_{G_{S_2}}\alphap\vect{z_{T_3}}+z_{G_{S_2}}\alphap\vect{x_{T_3}} )=-m_{S_2 } g(-x_{G_{S_2}}\alphap \cos \alpha+z_{G_{S_2}}\alphap\sin\alpha)$ 
+
+$\vectv{G_{S_2}}{S_2}{1}=\vectv{O_1}{S_2}{1}-(x_{G_{S_2}} \vect{x_{T_3}}+z_{G_{S_2}} \vect{z_{T_3}} ) \wedge \alphap \vy{1}=-x_{G_{S_2}}\alphap\vect{z_{T_3}}+z_{G_{S_2}}\alphap\vect{x_{T_3}}$.
+
+\item $\pext{1}{S_2}{1}=\torseurl{-}{L_{12}\vx{1}-\mu\alphap \vy{1}+N_{12}\vz{1}}{O_1} \otimes \torseurl{\alphap \vy{1}}{\vect{0}}{O_1}$ 
+$=  -\mu \alphap^2$
+
+\item $\pext{T_1}{T_2}{1}_{\text{pivot glissant}}=0$ (pivot glissant sans frottement)
+
+\item $\pext{T_1}{T_2}{1}_{\text{vérin}} = \torseurl{p(t)S\vect{z_{T_2}}}{-}{B_1} \otimes \torseurl{\vect{0}}{\lambdap}{B_1}=p(t)S\lambdap=p(t)S\dfrac{\alphap}{k}$
+
+\item $ \pext{\overline{E}}{E}{\rep{g}} =-m_{S_2 } g\left(-x_{G_{S_2}}\alphap \cos \alpha+z_{G_{S_2}}\alphap\sin\alpha\right)-\mu \alphap^2+p(t)S\alphap / k$.
+\end{itemize}
+
+	Calcul des puissances internes $\pint{E}=0$ pas de frottement dans la liaison pivot.
+
+	Calcul de l'énergie cinétique de l'ensemble : seules la masse et l’inertie de S2 sont à prendre en contact (elles sont négligeables pour T2). 
+	
+	$\ec{S_2}{1}=\dfrac{1}{2} J_{S2}\alphap^2+\dfrac{1}{2} m_{S2} \vectv{G_{S2}}{S_2}{1}^2=\dfrac{1}{2} \left(J_(S_2 )+m_{S_2} (x_{G_{S_2}}^2+z_{G_{S_2}}^2 )\right) \alphap^2 =\dfrac{1}{2} J_{eq} \alphap^2$
+avec $\indice{J}{eq}=J_(S_2 )+m_{S_2} (x_{G_{S_2}}^2+z_{G_{S_2}}^2 )$. 
+
+On trouve donc, au final :
+ $$\indice{J}{eq} \alphapp + \mu \alphap =\dfrac{p(t)S}{k}+m_{S2} g\left( x_{G_{S2}}   \cos \alpha-z_{G_{S2}}  \sin\alpha\right) .$$
+Si on suppose l'angle $\alpha$ nul (situation de la question précédente), on retrouve bien l'expression demandée.
+
+
 \end{corrige}
 \else
 \fi
 
-
-	 
-On isole l'ensemble : \{bateau ; S ; chaîne ; T12 ; T4\}. On applique le théorème de l'énergie cinétique à l’ensemble dans le référentiel terrestre supposé galiléen : 
-$\indice{P}{int}(E)+ \pext{\overline{E}}{E}{\rep{g}} = \deriv{\ec{E}{\rep{g}}}{}$
-
-\textbf{Relation cinématique :}
-\begin{itemize}
-	\item $\vectv{G}{S}{T_3}=V_B \vect{z}$ et $\vectv{G}{T_4}{T_{3}}=V_V \vect{z}$
-	\item $\vectv{G}{S}{T_3}=\vectv{G}{S}{T_{12}}+\vectv{G}{T_{12}}{T_{4}}+\vectv{G}{T_4}{T_{3}}$
-\begin{itemize}
-	\item $\vectv{G}{S}{T_{12}}=\vectv{J}{S}{T_{12}}+\vect{GJ}\wedge\vecto{S}{T_{12}}=R\vect{x}\wedge \omega\left({T_{4}}/{T_{12}}\right) \vect{y}=R\omega\left({T_{4}}/{T_{12}}\right) \vect{z}$
-	\item $V_B=R\omega\left({T_{4}}/{T_{12}}\right)+V_V$
-\end{itemize}
-	\item $\vectv{G}{S}{T_3}=\vectv{G}{S}{T_{12}}+\vectv{G}{T_{12}}{T_{3}}$
-\begin{itemize}
-	\item $\vectv{G}{T_{12}}{T_{3}}=\vectv{I}{T_{12}}{T_{3}}+\vect{GI}\wedge\vecto{T_{12}}{T_{3}}=-R\vect{x}\wedge \omega\left({T_{12}}/{T_{4}}\right)\vect{y}=R\omega\left({T_{4}}/{T_{12}}\right) \vect{z}$
-	\item $V_B=R\omega\left({T_{4}}/{T_{12}}\right)+R\omega\left({T_{4}}/{T_{12}}\right)=2R\omega\left({T_{4}}/{T_{12}}\right)$
-\end{itemize}
-	\item $V_B=V_B/2+V_V\Longleftrightarrow V_B=2V_V$ et $\omega\left({T_{4}}/{T_{12}}\right)=-\dfrac{V_B}{2R}$.	 
-\end{itemize}
-
-
-(Remarque : erreur de signe éventuelle sur $\omega\left({T_{12}}/{T_{4}}\right)$, non pénalisante pour la suite…)
-
-\textbf{Bilan des puissances extérieures :}
-\item $\pext{\text{pes}}{S}{\rep{g}}=\torseurl{}{}{G_B} \otimes \torseurl{}{}{G_B} 
-   {█(-(m_S+m_B )g\vect{z}@0 ⃗ )}_(G_B )⊗{█(0 ⃗@V_B \vect{z} )}_(G_B )=-(m_S+m_B )gV_B
-
-\item $\pext{\text{pes}}{T_4}{\rep{g}}=\torseurl{}{}{G_{T_4}} \otimes \torseurl{}{}{G_{T_4}}
-{█(-m_T4 g\vect{z}@0 ⃗ )}_(G_T4 )⊗{█(0 ⃗@V_V \vect{z} )}_(G_T4 )=-m_T4 gV_V=-1/2 m_T4 gV_B
-
-\item $\pext{\text{pre}}{T_4}{\rep{g}}=\torseurl{}{}{H} \otimes \torseurl{}{}{G_B} 
-={█(F_V \vect{z}@0 ⃗ )}_H⊗{█(0 ⃗@V_V \vect{z} )}_(G_B )=F_V V_V=1/2.F_V V_B
-\item $\pext{T_3}{T_4}{\rep{g}}=0 : glissière et pivot glissant sans frottement
-\item $\pext{T_3}{12}{\rep{g}}=0 : roulement sans glissement.
-\item $\pext{\overline{E}}{E}{\rep{g}}$=V_B (1/2.F_V-1/2 m_T4 g-(m_S+m_B )g)
-
-\end{document}
-
-\textbf{Bilan des puissances intérieures :}
-
-	P_int (E)=0
-
-\textbf{Calcul de l’énergie cinétique :}
-
-	E_c (S⁄3)=1/2 (m_S+m_B ) V_B^2 (mouvement de translation du bateau par rapport au référentiel galiléen)
-	E_c (T_4⁄3)=1/2 m_T4 V_V^2=1/8 m_T4 V_B^2 (mouvement de translation du vérin par rapport au référentiel galiléen)
-	E_c (T_12⁄3)=1/2 J〖ω(T_12⁄3)〗^2=1/2  (JV_B^2)/(4R^2 ) (mouvement de rotation et translation du solide 12 – masse négligeable) (Remarque : le terme ¼ n’apparait pas sur le corrigé initial).
-	E_c (E⁄3)=1/2 (m_S+m_B+1/4 m_T4+J/(4R^2 )) V_B^2
-	(〖dE〗_c (t))/dt=(m_S+m_B+1/4 m_T4+J/(4R^2 )) V_B γ et γ=(dV_B)/dt.
-Au final :
-(m_S+m_B+1/4 m_T4+J/(4R^2 )) V_B γ=V_B (1/2.F_V-1/2 m_T4 g-(m_S+m_B )g)
-\Longleftrightarrow γ=(1/2.F_V-1/2 m_T4 g-(m_S+m_B )g)/(m_S+m_B+1/4 m_T4+J/(4R^2 ))
-Cette valeur permet de valider l’exigence 1.1.3 car connaissant la vitesse de levage à atteindre en charge (cf. critère 1.1.2) et l'accélération, on peut connaître le temps du régime transitoire ( ).
-	 Quand le chariot avance à vitesse constante ( ), il faut que l'angle   soit nul. Il faut donc envoyer une consigne  .
-	 On isole l'ensemble E={S2 ; T2}. On applique le théorème de l’énergie cinétique à l’ensemble en mouvement dans le référentiel terrestre galiléen : P_int (E)+P(E ̅→E⁄R_g )=(〖dE〗_c (t))/dt. 
-	Calcul des puissances externes
-	P(pes→S_2⁄1)={█(-m_(S_2 ) g(z_1 ) ⃗@0 ⃗ )}_(G_(S_2 ) )⊗{█((Ω(S_2⁄1) ) ⃗=α ̇(y_1 ) ⃗@(V(G_(S_2 ),S_2⁄1) ) ⃗=-x_(G_(S_2 ) ) α ̇(z_(T_3 ) ) ⃗+z_(G_(S_2 ) ) α ̇(x_(T_3 ) ) ⃗ )}_(G_S2 )=(-m_(S_2 ) g(z_1 ) ⃗ )⋅(-x_(G_(S_2 ) ) α ̇(z_(T_3 ) ) ⃗+z_(G_(S_2 ) ) α ̇(x_(T_3 ) ) ⃗ )=-m_(S_2 ) g(-x_(G_(S_2 ) ) α ̇ cos⁡α+z_(G_(S_2 ) ) α ̇ sin⁡α )
-	(V(G_(S_2 ),S_2⁄1) ) ⃗=(V(O_1,S_2⁄1) ) ⃗-(x_(G_(S_2 ) ) (x_(T_3 ) ) ⃗+z_(G_(S_2 ) ) (z_(T_3 ) ) ⃗ )∧α ̇(y_1 ) ⃗=-x_(G_(S_2 ) ) α ̇(z_(T_3 ) ) ⃗+z_(G_(S_2 ) ) α ̇(x_(T_3 ) ) ⃗
-	P(1→S_2⁄1)={█(-@L_12 (x_1 ) ⃗-μα ̇(y_1 ) ⃗+N_12 (z_1 ) ⃗ )}_(O_1 )⊗{█(α ̇(y_1 ) ⃗@0 ⃗ )}_(O_1 )=-μα ̇^2	 
-	P(T_1→T_2⁄1)_(pivot glissant)=0 (pivot glissant sans frottement)
-	P(T_1→T_2⁄1)_vérin={█(p(t)S(z_(T_2 ) ) ⃗@ -)}_(B_1 )⊗{█(0 ⃗@λ ̇(z_(T_2 ) ) ⃗ )}_(B_1 )=p(t)Sλ ̇=p(t)Sα ̇/k
-	P(E ̅→E⁄R_g )=-m_(S_2 ) g(-x_(G_(S_2 ) ) α ̇ cos⁡α+z_(G_(S_2 ) ) α ̇ sin⁡α )-μα ̇^2+p(t)Sα ̇/k
-	Calcul des puissances internes P_int (E)=0 pas de frottement dans la liaison pivot.
-	Calcul de l'énergie cinétique de l'ensemble : seules la masse et l’inertie de S2 sont à prendre en contact (elles sont négligeables pour T2). E_c (S_2⁄1)=1/2 J_S2 α ̇^2+1/2 m_S2 (V_(G_S2,S_2⁄1) ) ⃗^2=1/2 (J_(S_2 )+m_(S_2 ) (x_(G_(S_2 ))^2+z_(G_(S_2 ))^2 )) (α^2 ) ̇=1/2 J_eq (α^2 ) ̇
-avec J_eq=J_(S_2 )+m_(S_2 ) (x_(G_(S_2 ))^2+z_(G_(S_2 ))^2 ). 
-On trouve donc, au final :
-J_eq α ̈+μα ̇=p(t)S/k+m_S2 g(x_(G_S2 )  cos⁡α-z_(G_S2 )  sin⁡α )  
-Si on suppose l'angle αnul (situation de la question précédente), on retrouve bien l'expression demandée.
-
+	
 
 \ifprof
 %\end{multicols}%
