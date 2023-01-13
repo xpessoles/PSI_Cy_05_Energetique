@@ -85,7 +85,7 @@ plan de symétrie de la voiture $\left(O,\vect{z_s},\vect{x_s}\right)$;
 \item toutes les liaisons sont supposées parfaites à l’exception du contact roue -- sol;
 \item les roues roulent sans glisser sur le sol en $I_i$;
 \item le coefficient de résistance au roulement $\mu$ est identique pour tous les contacts
-roue -- sol : $\mu = \si{3e-3}{m}$. On pose $\vect{I_1J_1}=\mu \vect{x_s}$, avec $\mu >0$
+roue -- sol : $\mu = \SI{3e-3}{m}$. On pose $\vect{I_1J_1}=\mu \vect{x_s}$, avec $\mu >0$
 si le déplacement du véhicule est suivant $+\vect{x_s}$;
 \item les frottements de l’air sur le véhicule seront négligés;
 seules les roues arrière sont motrices.
@@ -94,8 +94,8 @@ seules les roues arrière sont motrices.
 \textbf{Actions mécaniques}
 Le torseur des actions mécaniques du sol sur un ensemble, avant ou arrière, de roues
 est :
-$\torseurstat{F}{s}{i}=\torseurl{T_i\vect{x_s}+N_i\vect{z_s}}{\vect{0}}{J_i}$ avec $J_i \in \left(O,\vect{x_s},\vect{y_s}\right)$ et $i=1$ (roues arrières) ou 2 (roues avants). Le moteur permet d'appliquer un couple en 3 et 4 tel que 
-$\torseurstat{F}{3}{4}=\torseurl{\vect{0}}{C_m\vect{y_0}}{-}$. 
+$\torseurstat{T}{s}{i}=\torseurl{T_i\vect{x_s}+N_i\vect{z_s}}{\vect{0}}{J_i}$ avec $J_i \in \left(O,\vect{x_s},\vect{y_s}\right)$ et $i=1$ (roues arrières) ou 2 (roues avants). Le moteur permet d'appliquer un couple en 3 et 4 tel que 
+$\torseurstat{T}{3}{4}=\torseurl{\vect{0}}{C_m\vect{y_0}}{-}$. 
 
 \textbf{Masses et inerties : }
 \begin{itemize}
