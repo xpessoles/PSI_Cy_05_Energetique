@@ -1,35 +1,58 @@
-%\setchapterimage{bandeau}
-\chapter*{Application \arabic{cptApplication} \\ 
-Système de dépose de composants électroniques -- \ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{Application \arabic{cptApplication} : Système de dépose de composants électroniques -- \ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{ \ifprof \normalsize{Activation 1 -- Corrigé } \else  \ifcolle Colle \else Activation 1\fi \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptApplication} \else
-\ifprof  \stepcounter{cptApplication} \else \fi
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Approche énergétique}
+
+\def\xxcompetences{%
+\footnotesize{
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\vspace{-.2cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item Mod2.C18.SF1 : Déterminer l’énergie cinétique d’un solide, ou d’un ensemble de solides, dans son mouvement par rapport à un autre solide.
+\item Res1.C1.SF1 : Proposer une démarche permettant la détermination de la loi de mouvement.
+%\item Mod1.C5.SF2 : Déterminer la puissance des actions mécaniques extérieures à un solide ou à un ensemble de solides, dans son mouvement rapport à un autre solide.
+%\item Mod1.C5.SF3 : Déterminer la puissance des actions mécaniques intérieures à un ensemble de solides.
+\end{itemize}}}}
+
+
+\def\xxtitreexo{Activation -- Système de dépose de composants électroniques}%Motorisation du moteur Haibike}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Émilien Durif -- E3A PSI 2011}}
+
+\def\xxfigures{
+\includegraphics[width=.7\linewidth]{axe_y_photo}
+}%figues de la page de garde
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\vspace{5.2cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+
+\ifprof
+%\begin{multicols}{2}
+\else
+\begin{multicols}{2}
 \fi
-
-\setcounter{question}{0}
-\marginnote{Émilien Durif -- E3A PSI 2011.}
-%\marginnote[1cm]{
-%\UPSTIcompetence[2]{B2-10}
-%}
-\begin{marginfigure}
-\centering
-\includegraphics[width=4cm]{axe_y_photo}
-\end{marginfigure}
+\ifprof\else
 
 Le système étudié permet de déposer automatiquement des composants électroniques sur un circuit.
 On s'intéresse ici à la modélisation d'un seul axe (selon la direction notée $\overrightarrow{y_0}$) actionné par un moteur électrique et utilisant un mécanisme de transformation de mouvement <<~\textit{vis-écrou}~>>.
-
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{schema_cine_depose_composant.pdf}
-\end{marginfigure}
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{req_systeme_depose.pdf}
-\end{marginfigure}
-
-
 
 \textbf{Hypothèses :}
 \begin{itemize}
@@ -42,10 +65,16 @@ On s'intéresse ici à la modélisation d'un seul axe (selon la direction notée
 \item seul l'action de pesanteur sur $S_3$ sera supposée non négligeable.
 \end{itemize}
 
+\ifprof
+\else
+\begin{center}
+%\includegraphics[width=\linewidth]{axe_y_photo.png}
 
+\includegraphics[width=\linewidth]{schema_cine_depose_composant.pdf}
 
-
-
+\includegraphics[width=\linewidth]{req_systeme_depose.pdf}
+\end{center}
+\fi
 \begin{itemize}
 \item $S_0$ : poutre transversale considérée comme fixe par rapport au bâti.
 \item $S_1$ : vis à billes (hélice à droite) et arbre moteur.
@@ -53,7 +82,6 @@ On s'intéresse ici à la modélisation d'un seul axe (selon la direction notée
 \item $S_3$ : chariot supportant la tête de dépose (masse $M_3$).
 \end{itemize}
 
-\marginnote{
 \textbf{Données numériques associées au système :}
 \begin{itemize}
 \item Coefficient de frottement dans la liaison glissière (rail + patin à billes) : $\mu = 0,1$.
@@ -62,7 +90,16 @@ On s'intéresse ici à la modélisation d'un seul axe (selon la direction notée
 \item Moment d'inertie de la vis à billes suivant l'axe $\overrightarrow{y_0}$ : $I_v = 2,15 \times 10^{-4}\;\text{kg m}^2$.
 \item Couple résistant sur la vis due à son guidage (paliers + joints): $C_r = \SI{3}{Nm}$.
 \item $l$, longueur libre de la vis -- entre deux paliers -- (mm) : $\SI{1000}{mm}$.
-\end{itemize}}
+\item Caractéristiques du moteur d'axe (puissance, vitesse maxi, inertie) :
+\begin{itemize}
+\item couple maximal, $C_{\text{max}} = \SI{21,2}{Nm}$;
+\item fréquence de rotation maximale, $N_m = \SI{6000}{tr/min}$;
+\item moment d'inertie du rotor du moteur suivant l'axe $\overrightarrow{y_0}$, $I_m = 1,6 \times 10^{-4}\;\text{kg m}^2$.
+\end{itemize}
+
+\end{itemize}
+
+\clearpage
 
 
 
@@ -80,8 +117,10 @@ L'objectif de cette étude est de relier les grandeurs liées à l'actionneur du
 \end{obj}
 
 
-On considère l'ensemble $E=\left\{S_1+S_2+S_3\right\}$.
 
+
+On considère l'ensemble $E=\left\{S_1+S_2+S_3\right\}$.
+\fi
 
 \question{Construire le graphe des liaisons modélisant le système entier.}
 
@@ -91,8 +130,6 @@ On considère l'ensemble $E=\left\{S_1+S_2+S_3\right\}$.
 \end{center}
 \end{corrige}\else\fi
 
-
-
 \question{Déterminer l'expression de $\mathcal{P}(\text{ext} \rightarrow E/R_g)$ en fonction de puissances extérieures élémentaires (on ne développera pas les calculs explicitement pour l'instant).}
 \ifprof\begin{corrige}
 \begin{align*}
@@ -100,16 +137,6 @@ On considère l'ensemble $E=\left\{S_1+S_2+S_3\right\}$.
 +\mathcal{P}(S_0 \rightarrow S_3/R_0)+\mathcal{P}(\text{poids} \rightarrow S_3/R_0)
 \end{align*}
 \end{corrige}\else\fi
-
-\marginnote{
-Caractéristiques du moteur d'axe (puissance, vitesse maxi, inertie) :
-\begin{itemize}
-\item couple maximal, $C_{\text{max}} = \SI{21,2}{Nm}$;
-\item fréquence de rotation maximale, $N_m = \SI{6000}{tr/min}$;
-\item moment d'inertie du rotor du moteur suivant l'axe $\overrightarrow{y_0}$, $I_m = 1,6 \times 10^{-4}\;\text{kg m}^2$.
-\end{itemize}
-}
-
 
 
 \question{Calculer $\mathcal{P}(\text{ext}\rightarrow E/R_0)$ en fonction des données du problème.}
@@ -363,3 +390,11 @@ $
 $
 \end{corrige}\else\fi
 
+
+
+
+\ifprof
+%\end{multicols}
+\else
+\end{multicols}
+\fi

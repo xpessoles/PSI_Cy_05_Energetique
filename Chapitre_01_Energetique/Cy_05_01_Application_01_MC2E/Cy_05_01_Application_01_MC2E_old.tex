@@ -1,23 +1,53 @@
-%\setchapterimage{bandeau}
-\chapter*{Application \arabic{cptApplication} \\ 
-Micromanipulateur compact pour la chirurgie endoscopique ($\text{MC}^2\text{E}$) -- \ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{Application \arabic{cptApplication} : Micromanipulateur compact pour la chirurgie endoscopique ($\text{MC}^2\text{E}$) -- \ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{ \ifprof \normalsize{Application 1 -- Corrigé } \else  \ifcolle Colle \else Application 1\fi \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptApplication} \else
-\ifprof  \stepcounter{cptApplication} \else \fi
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Approche énergétique}
+
+\def\xxcompetences{%
+\footnotesize{
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item Mod2.C18.SF1 : Déterminer l’énergie cinétique d’un solide, ou d’un ensemble de solides, dans son mouvement par rapport à un autre solide.
+\item Res1.C1.SF1 : Proposer une démarche permettant la détermination de la loi de mouvement.
+%\item Mod1.C5.SF2 : Déterminer la puissance des actions mécaniques extérieures à un solide ou à un ensemble de solides, dans son mouvement rapport à un autre solide.
+%\item Mod1.C5.SF3 : Déterminer la puissance des actions mécaniques intérieures à un ensemble de solides.
+\end{itemize}}}}
+
+
+\def\xxtitreexo{Micromanipulateur compact pour la chirurgie endoscopique ($\text{MC}^2\text{E}$)}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Concours Commun Mines Ponts 2016}}
+
+\def\xxfigures{
+\includegraphics[width=.55\textwidth]{fig_01}
+}%figues de la page de garde
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\vspace{5.2cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+
+
+\ifprof
+\else
+\begin{multicols}{2}
 \fi
-
-\setcounter{question}{0}
-\marginnote{Concours Commun Mines Ponts 2016.}
-%\marginnote[1cm]{
-%\UPSTIcompetence[2]{B2-10}
-%}
-%\begin{marginfigure}
-%\centering
-%\includegraphics[width=4cm]{fig_00}
-%\end{marginfigure}
-
-
 \section*{Mise en situation}
 
 \ifprof
@@ -216,22 +246,38 @@ $C_e(t) = k \left(R_g r \dfrac{R_i}{R_e}\right)^2\theta_m(t)$.
 \else
 \ifcolle
 \else
-\marginnote{
-\begin{solution}
+\subsubsection*{Corrigé résumé}
 \begin{enumerate}
 \item $v(t)=R_g r \dfrac{R_i}{R_e}\omega_m(t)$ et $z(t)=R_g r \dfrac{R_i}{R_e}\theta_m(t)$. 
 \item .
 \item $J=I_m+\left(I_r+I_i\right)r^2 +\left(I_e+2I_p+6I_g\right)\left( \dfrac{R_i}{R_e}r\right)^2 +m_4\left( R_g r \dfrac{R_i}{R_e} \right)^2$.
+
 \item $\mathcal{P}\left(\text{res}\to 4/\mathcal{R}_g \right)=-kz(t) \dfrac{R_g rR_i}{R_e}\omega_m(t)$, $\mathcal{P}\left(\text{mot}\to 4/\mathcal{R}_g \right)=C_m\omega_m(t)$, $\mathcal{P}\left(\text{pes}\to E/\mathcal{R}_g \right)=0$ et
 $\mathcal{P}_{\text{int}}\left(E\right)=0$.
 %\item $J\dot{\omega}_m(t) = -k \left(R_g r \dfrac{R_i}{R_e}\right)^2\theta_m(t) +C_m$.
 \item $C_e(t) = k \left(R_g r \dfrac{R_i}{R_e}\right)^2\theta_m(t)$.
 \end{enumerate}
-\end{solution}
-}
 \fi
 \fi
 
+\ifprof
+\else
+\end{multicols}
+\fi
+
+%\ifprof
+%\else
+%
+%\vspace{1cm}
+%\begin{center}
+%\includegraphics[width=\linewidth]{fig_03}
+%%\textit{}
+%\end{center}
+%\fi
+%\begin{center}
+%\includegraphics[width=\linewidth]{fig_04}
+%%\textit{}
+%\end{center}
 
 \ifprof
 \else
