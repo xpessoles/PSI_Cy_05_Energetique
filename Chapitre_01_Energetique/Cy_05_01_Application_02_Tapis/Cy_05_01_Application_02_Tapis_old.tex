@@ -1,26 +1,52 @@
-%\setchapterimage{bandeau}
-\chapter*{Application \arabic{cptApplication} \\ 
-Tapis de course -- \ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{Application \arabic{cptApplication} : Tapis de course -- \ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{ \ifprof \normalsize{Application 2 -- Corrigé } \else  \ifcolle Colle \else  Application 2\fi \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptApplication} \else
-\ifprof  \stepcounter{cptApplication} \else \fi
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Approche énergétique}
+
+\def\xxcompetences{%
+\footnotesize{
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\vspace{-.2cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item Mod2.C18.SF1 : Déterminer l’énergie cinétique d’un solide, ou d’un ensemble de solides, dans son mouvement par rapport à un autre solide.
+\item Res1.C1.SF1 : Proposer une démarche permettant la détermination de la loi de mouvement.
+%\item Mod1.C5.SF2 : Déterminer la puissance des actions mécaniques extérieures à un solide ou à un ensemble de solides, dans son mouvement rapport à un autre solide.
+%\item Mod1.C5.SF3 : Déterminer la puissance des actions mécaniques intérieures à un ensemble de solides.
+\end{itemize}}}}
+
+\def\xxtitreexo{Application 02}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Pôle Chateaubriand -- Joliot-Curie}}
+
+\def\xxfigures{
+\includegraphics[width=.6\linewidth]{fig_00}
+}%figues de la page de garde
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\vspace{5.2cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+
+
+\ifprof
+\else
+\begin{multicols}{2}
 \fi
-
-\setcounter{question}{0}
-\marginnote{Pôle Chateaubriand -- Joliot-Curie.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-05}
-\UPSTIcompetence[2]{C2-08}}
-
-%
-%\begin{marginfigure}
-%\centering
-%\includegraphics[width=4cm]{fig_00}
-%\end{marginfigure}
-
-
-
 \ifprof\else
 On s’intéresse à un tapis de course dont on
 donne une description structurelle ainsi qu’un
@@ -51,22 +77,11 @@ augmenter encore l’effort.
 \includegraphics[width=\linewidth]{fig_01.png}
 \end{center}
 
-%\includegraphics[width=\linewidth]{fig_02.png}
-
 Extrait du cahier des charges :
-\begin{table*}[!h]
-\centering
-\begin{tabular}{p{6cm}p{3cm}p{7cm}}
-\hline
-\textbf{Exigences} & \textbf{Critères} & \textbf{Niveaux} \\
-\hline
-\multirow{3}{6cm}{1.1 Le système doit permettre au coureur de courir avec une fréquence cardiaque prédéfiinie.} &
-Vitesse de course & De 0 à \SI{19}{km.h^{-1}} par incrément de \SI{0,1}{km.h^{-1}}   \\
-& Pente & De 0\, \% à \SI{14}{\%} par incrément de \SI{0,5}{\%}   \\
-& Masse utilisateur & \SI{115}{kg} maxi \\
-\hline
-\end{tabular}
-\end{table*}
+
+\begin{center}
+\includegraphics[width=\linewidth]{fig_02.png}
+\end{center}
 
 Hypothèses et données :
 \begin{itemize}
@@ -125,19 +140,22 @@ caractéristiques ci-dessous.
 
 \ifcolle
 \else
+\vspace{1cm}
 \footnotesize
-\marginnote{
-\begin{solution}
+\paragraph*{Éléments de correction}
 \begin{enumerate}
 \item $\omega_m=\dfrac{R_{p2}}{R_{p1}}\dfrac{V_{30}}{R_e}$ et $\omega_{\text{m max}}=\SI{351}{rad.s^{-1}}$.
 \item $C_m=\dfrac{1}{\eta}\left( T_{\text{coureur}\rightarrow 3} R_e \dfrac{R_{p1}}{R_{p2}}\right)$.
 \item $P\left(0\to1/0 \right)=\dfrac{1}{0,9}\left(T R_e \dfrac{R_{p1}}{R_{p2}} \right) \omega_{\text{max}}=\SI{1349}{W}$.
 \item ...
 \end{enumerate}
-\end{solution}}
 \fi
 
-
+\ifprof
+%\end{multicols}
+\else
+\end{multicols}
+\fi
 
 
 
