@@ -1,22 +1,54 @@
-%\setchapterimage{bandeau}
-\chapter*{Application \arabic{cptApplication} \\ 
-Appareil de mammographie « ISIS » (General Electric) -- \ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{Application \arabic{cptApplication} : Appareil de mammographie « ISIS » (General Electric) -- \ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{ \ifprof {Application 4 -- Corrigé } \else  \ifcolle Colle \else Application 4\fi \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptApplication} \else
-\ifprof  \stepcounter{cptApplication} \else \fi
+\def\xxnumchapitre{Chapitre 1 \& 2 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Chaînes de solides}
+
+
+
+\def\xxcompetences{%
+\footnotesize{
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\vspace{-.2cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item \textit{Mod2.C34} : chaînes de solides;
+\item \textit{Mod2.C34} : degré de mobilité du modèle;
+\item \textit{Mod2.C34} : degré d’hyperstatisme du modèle;
+%\item \textit{Mod2.C34.SF1} : déterminer les conditions géométriques associées à l’hyperstatisme;
+%\item \textit{Mod2.C34} : résoudre le système associé à la fermeture cinématique et en déduire le degré de mobilité et d’hyperstatisme.
+\end{itemize}}}}
+
+\def\xxtitreexo{Appareil de mammographie « ISIS » (General Electric)}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Centrale MP 2004}}
+
+\def\xxfigures{
+\includegraphics[width=.5\textwidth]{fig_00}
+}%figues de la page de garde
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\vspace{5.2cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+
+\ifprof
+\else
+\begin{multicols}{2}
 \fi
-
-\setcounter{question}{0}
-\marginnote{Centrale MP 2004.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-05}
-\UPSTIcompetence[2]{C2-08}}
-
-
-\begin{marginfigure} [4cm]
-\includegraphics[width=\linewidth]{fig_00}
-\end{marginfigure}
 
 
 \section*{Mise en situation}
@@ -131,11 +163,6 @@ technique associée : « faire monter et descendre
 l’ascenseur »}
 \ifprof
 \else
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_07}
-%\textit{}
-\end{marginfigure}
 Le mammographe doit être adapté à la taille de la patiente en faisant monter
 ou descendre l’ascenseur. La liaison glissière de l’ascenseur par rapport à la partie
 fixe du mammographe est réalisée par un guidage sur deux barres parallèles
@@ -147,16 +174,20 @@ l’intermédiaire d’une poulie montée à l’extrémité de la tige du véri
 d’une courroie crantée. Une des extrémités de la courroie est fixée sur le bâti du
 mammographe et l’autre extrémité est liée à l’ascenseur.
 
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_08}
+\begin{center}
+\includegraphics[width=.6\linewidth]{fig_07}
 %\textit{}
-\end{marginfigure}
+\end{center}
 
-\begin{marginfigure}
+\begin{center}
+\includegraphics[width=.6\linewidth]{fig_08}
+%\textit{}
+\end{center}
+
+\begin{center}
 \includegraphics[width=\linewidth]{fig_10}
 %\textit{}
-\end{marginfigure}
+\end{center}
 
 \fi
 
@@ -180,19 +211,19 @@ pour chaque cas la conformité au cahier des charges.
 \ifprof
 \else
 \begin{center}
-\begin{tabular}{p{.6\linewidth}p{.3\linewidth}}
-
-\multicolumn{2}{c}{Faire monter ou descendre l'ascenseur} \\
+\begin{tabular}{|p{.6\linewidth}|p{.3\linewidth}|}
+\hline
+\multicolumn{2}{|c|}{Faire monter ou descendre l'ascenseur} \\
 \hline
 Critères & Niveaux \\
 \hline
 Ne pas stresser la patiente en déplaçant trop rapidement l’ascenseur : limiter la vitesse de
-déplacement rapide & $V_R=\SI{0,15}{m.s^{-1}}$ \\ 
+déplacement rapide & $V_R=\SI{0,15}{m.s^{-1}}$ \\ \hline
 Ne pas blesser la patiente lors de l’approche du bucky : respecter une vitesse lente $V_L$ lors de
-l’accostage & $V_L=\SI{0,02}{m.s^{-1}}$ \\ 
-Respecter une course de réglage de la position de l’ascenseur & $\text{course} = \SI{0,8}{m}$  $\delta_{\text{course}}=\pm\SI{e-3}{m}$ \\ 
+l’accostage & $V_L=\SI{0,02}{m.s^{-1}}$ \\ \hline 
+Respecter une course de réglage de la position de l’ascenseur & $\text{course} = \SI{0,8}{m}$  $\delta_{\text{course}}=\pm\SI{e-3}{m}$ \\ \hline
 Atteindre rapidement la vitesse de déplacement rapide $V_R$: respecter
-la durée $t_a$ de la phase d’accélération constante & $t_a=\SI{0,4}{s}$ (mini)
+la durée $t_a$ de la phase d’accélération constante & $t_a=\SI{0,4}{s}$ (mini) \\
  \\ \hline
 \end{tabular}
 \end{center}
@@ -246,15 +277,14 @@ En conséquence, la distance à parcourir à vitesse constante est $d_c=0,8-2\ti
 \subsection*{Solution sans assistance}
 \ifprof
 \else
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_10_bis}
-%\textit{}
-\end{marginfigure}
-
 On souhaite déterminer le couple moteur. Pour cela on propose d’appliquer le théorème de
 l’énergie-puissance au système isolé $\Sigma$ (rotor du moteur + vis + ascenseur) en mouvement
 par rapport au bâti supposé galiléen. 
+
+\begin{center}
+\includegraphics[width=\linewidth]{fig_10_bis}
+%\textit{}
+\end{center}
 
 On notera :
 \begin{itemize}
@@ -514,11 +544,10 @@ Comme au minimum, $F_c = Mg$, on a donc $F_{\text{mini}} = 2 Mg = \SI{2550,6}{N}
 
 \ifprof
 \else
-\begin{marginfigure}
+Le vérin à gaz est présenté sur le dessin ci-dessous.
+\begin{center}
 \includegraphics[width=\linewidth]{fig_11}
-\end{marginfigure}
-Le vérin à gaz est présenté sur le dessin ci-contre.
-
+\end{center}
 \fi
 
 \question{Pour étudier l’action exercée par l’azote sous pression sur la tige du vérin on
@@ -540,9 +569,9 @@ Dans le second cas, l'effort est $-p \pi\dfrac{d^2}{4}$. Les deux modèle sont d
 
 \ifprof
 \else
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_12}
-\end{marginfigure}
+\end{center}
 \fi
 
 \question{Compte tenu des efforts on pré-dimensionne la tige du vérin à un diamètre $d=\SI{15e-3}{m}$. On appelle pression de gonflage, la pression de l’azote que le
@@ -692,3 +721,7 @@ satisfaisante ?}
 %\else
 %\fi
 
+\ifprof
+\else
+\end{multicols}
+\fi
