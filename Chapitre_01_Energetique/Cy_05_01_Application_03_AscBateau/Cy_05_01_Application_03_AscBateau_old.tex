@@ -1,22 +1,54 @@
-%\setchapterimage{bandeau}
-\chapter*{Application \arabic{cptApplication} \\ 
-Chariot élévateur à bateaux -- \ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{Application \arabic{cptApplication} : Chariot élévateur à bateaux -- \ifprof Corrigé \else Sujet \fi}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{ \ifprof {Application 3 -- Corrigé } \else  \ifcolle Colle \else  Application 3\fi \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\iflivret \stepcounter{cptApplication} \else
-\ifprof  \stepcounter{cptApplication} \else \fi
+
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Approche énergétique}
+
+\def\xxcompetences{%
+\footnotesize{
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\vspace{-.2cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item Mod2.C18.SF1 : Déterminer l’énergie cinétique d’un solide, ou d’un ensemble de solides, dans son mouvement par rapport à un autre solide.
+\item Res1.C1.SF1 : Proposer une démarche permettant la détermination de la loi de mouvement.
+%\item Mod1.C5.SF2 : Déterminer la puissance des actions mécaniques extérieures à un solide ou à un ensemble de solides, dans son mouvement rapport à un autre solide.
+%\item Mod1.C5.SF3 : Déterminer la puissance des actions mécaniques intérieures à un ensemble de solides.
+\end{itemize}}}}
+
+\def\xxtitreexo{Chariot élévateur à bateaux}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{X -- ENS -- PSI -- 2012}}
+
+\def\xxfigures{
+\includegraphics[width=.57\linewidth]{fig_00}
+}%figues de la page de garde
+
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\vspace{5.2cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+
+\ifprof
+%\begin{multicols}{2}
+\else
+\begin{multicols}{2}
 \fi
-
-\setcounter{question}{0}
-\marginnote{X -- ENS -- PSI -- 2012.}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-05}
-\UPSTIcompetence[2]{C2-08}}
-
-
-\begin{marginfigure} [4cm]
-\includegraphics[width=\linewidth]{fig_01a}
-\end{marginfigure}
 
 \subsection*{Présentation}
 \ifprof
@@ -29,9 +61,9 @@ et le levage ;
 \item du tablier, constitué du mât et des fourches, qui permet la préhension et la dépose du bateau.
 \end{itemize}
 
-%\begin{marginfigure} 
-%\includegraphics[width=\linewidth]{fig_01a}
-%\end{marginfigure}
+\begin{center}
+\includegraphics[width=\linewidth]{fig_01a}
+\end{center} 
 
 
 
@@ -43,23 +75,15 @@ Permettre au conducteur de charger et décharger le bateau en toute sécurité :
 \item req 103 : temps pour atteindre la vitesse de levage en charge : \SI{0,4}{s}.
 \end{itemize}
 \end{obj}
-
-
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_01}
-\end{marginfigure}
-
-Dans cette partie, on considère que le chariot est à l’arrêt et que le levage est le seul mouvement actif. Le modèle retenu pour cette étude est le schéma de principe de la figure ci-contre. En raison de la symétrie du tablier par rapport à son plan médian vertical, le modèle d’étude peut se ramener à un système comprenant un seul vérin, une seule chaîne et une seule poulie.% L’adaptation des caractéristiques
+Dans cette partie, on considère que le chariot est à l’arrêt et que le levage est le seul mouvement actif. Le modèle retenu pour cette étude est le schéma de principe de la suivante. En raison de la symétrie du tablier par rapport à son plan médian vertical, le modèle d’étude peut se ramener à un système comprenant un seul vérin, une seule chaîne et une seule poulie.% L’adaptation des caractéristiques
 %cinétiques des différents solides est déjà prise en compte dans les données fournies dans le sujet afin d’assurer la cohérence entre le système réel et la modélisation choisie.
 L’actionneur est un vérin hydraulique dont le corps est en liaison encastrement avec le mât inférieur. La tige est solidaire du mât supérieur. Le levage de l’ensemble S=\{T5,T6,T7,T8,T9,T10,T11\} est obtenu à l’aide d’une chaîne présentant un point d’ancrage sur le mât inférieur et un point d’ancrage sur l’ensemble S. Cette chaîne roule sans glisser sur le pignon T12 qui est en liaison pivot par rapport au mât supérieur.
 Le bateau étant à l’arrêt en position basse, le conducteur actionne le levage du bateau.
 L’effort de poussée fourni par le vérin est $F_V$ (considéré comme constant). 
 On note $I_{T12}$ le moment d’inertie de la poulie T12 par rapport à son axe de rotation, $R_{T12}$ son rayon. Sa masse est négligée.
 Les masses des différents solides sont rappelées dans le tableau ci-dessous :
-
-\begin{marginfigure}[-.5cm]
-\begin{tabular}{ll}
+\begin{center}
+\begin{tabular}{|c|c|}
 \hline 
 Solide & Masse \\
 \hline
@@ -69,9 +93,13 @@ Mât inférieur (T3) & $m_{T3}$ \\ \hline
 Mât supérieur (T4) & $m_{T4}$ \\ \hline
 Chaîne (C) & négligée \\ \hline
 \end{tabular}
-\end{marginfigure}
+\end{center}
 
 Les liaisons sont parfaites. La chaîne est non dissipative. Le repère $\rep{3}$ peut être considéré comme un référentiel galiléen pour les conditions de l’étude. Les axes $\vect{z_{T3}}$ et $\vect{z_{0}}$ sont confondus pour les conditions de l’étude.
+
+\begin{center}
+\includegraphics[width=\linewidth]{fig_01}
+\end{center}
 
 \fi
 
@@ -147,10 +175,6 @@ Cette valeur permet de valider l’exigence 1.1.3 car connaissant la vitesse de 
 \ifprof
 \else
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_02}
-\end{marginfigure}
-
 La zone de stockage des bateaux se situe nécessairement à une altitude supérieure à celle du quai de déchargement. Afin d’éviter le glissement du bateau lorsque le chariot descend une pente, un dispositif permet de maintenir les fourches horizontales durant le déplacement. Lors d’une phase de décélération, les fourches sont automatiquement inclinées vers l’arrière pour éviter le glissement du bateau. Ce mouvement, de faible amplitude, est assuré par l’asservissement des vérins d’inclinaison du tablier T1,T2 et T1’, T2’. Ce dispositif présente l’avantage de prendre en charge de manière entièrement automatisée l’un des mouvements du tablier. Le conducteur peut alors charger et mettre à l’eau le bateau sans avoir à gérer manuellement le mouvement d’inclinaison.
 La figure suivante permet de définir :
 \begin{itemize}
@@ -160,6 +184,9 @@ La figure suivante permet de définir :
 \end{itemize}
 
 
+\begin{center}
+\includegraphics[width=\linewidth]{fig_02}
+\end{center}
 \fi
 
 
@@ -175,14 +202,13 @@ La figure suivante permet de définir :
 \ifprof
 \else
 
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_03}
-\end{marginfigure}
-
 Nous considérons dans cette partie que le seul mouvement actif est le basculement.
 L’objectif est d’obtenir un modèle dynamique du mécanisme de basculement à partir de la modélisation plane proposée sur la figure suivante.
 
+
+\begin{center}
+\includegraphics[width=\linewidth]{fig_03}
+\end{center}
 
 Les solides pris en compte pour l’étude sont :
 \begin{itemize}
@@ -245,3 +271,10 @@ Si on suppose l'angle $\alpha$ nul (situation de la question précédente), on r
 \fi
 
 	
+
+\ifprof
+%\end{multicols}%
+\else
+\end{multicols}%
+\fi
+
