@@ -256,6 +256,25 @@ $
 \else
 \fi
 
+\ifprof
+\else
+\ifcolle
+\else
+\noindent
+\marginnote[-5cm]{
+\begin{solution}
+\begin{enumerate}
+\item  $E_c=\frac{1}{2}\;m_1\;\dot{\delta}^2\left(R^2+\frac{L_1^2}{3}+R\;L_1\sin\delta\right)$.
+\item  $ \mathcal{P}(\text{\text{ext}}\rightarrow \Sigma/0)= -m_1\;g\frac{L_1}{2}\dot{\delta}\;\cos\delta $.
+\item  $ \mathcal{P}_{\text{int}}\left( \Sigma\right)=-F\;b\;\left(\dot{\beta}-\dot{\delta}\right)\sin(\beta-\delta) $
+\item $m_1\;\dot{\delta}\left[\ddot{\delta}\left(R^2+\frac{L_1^2}{3}+R\;L_1\sin\delta\right)+\frac{1}{2}\dot{\delta}^2\;R\;L_1\cos\delta\right]
+=-F\;b\;\left(\dot{\beta}-\dot{\delta}\right)\sin(\beta-\delta)-m_1\;g\frac{L_1}{2}\dot{\delta}\;\cos\delta $.
+\end{enumerate} 
+\end{solution}}
+\fi
+\fi
+
+
 
 Des simulations pour différentes valeurs de $F$ donnent les diagrammes (figure suivante) représentant l'évolution de $\delta$ en fonction du temps.
 
@@ -307,29 +326,9 @@ Cette valeur de l'effort n'est pas satisfaisante.
 
 %\begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=1.0\linewidth]{courbes_simulation.png}
+\includegraphics[width=.8\linewidth]{courbes_simulation.png}
 %\caption{Résultats de la simulation dynamique du système \label{simulation_dynamique}}
 \end{center}
 %\end{figure}
-\fi
-
-\ifprof
-\else
-\ifcolle
-\else
-\noindent
-\begin{tabular}{|p{\linewidth}|}
-\hline
-\begin{enumerate}
-\item  $E_c=\frac{1}{2}\;m_1\;\dot{\delta}^2\left(R^2+\frac{L_1^2}{3}+R\;L_1\sin\delta\right)$.
-\item  $ \mathcal{P}(\text{\text{ext}}\rightarrow \Sigma/0)= -m_1\;g\frac{L_1}{2}\dot{\delta}\;\cos\delta $.
-\item  $ \mathcal{P}_{\text{int}}\left( \Sigma\right)=-F\;b\;\left(\dot{\beta}-\dot{\delta}\right)\sin(\beta-\delta) $
-\item $m_1\;\dot{\delta}\left[\ddot{\delta}\left(R^2+\frac{L_1^2}{3}+R\;L_1\sin\delta\right)+\frac{1}{2}\dot{\delta}^2\;R\;L_1\cos\delta\right]
-=-F\;b\;\left(\dot{\beta}-\dot{\delta}\right)\sin(\beta-\delta)-m_1\;g\frac{L_1}{2}\dot{\delta}\;\cos\delta $.
-\end{enumerate} \\
-\hline
-\end{tabular}
-\fi
-
 \fi
 
