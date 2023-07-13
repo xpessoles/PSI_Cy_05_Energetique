@@ -1,33 +1,60 @@
-%\setchapterimage{bandeau}
-\chapter*{TD \arabic{cptTD} \\ 
-Système de dépose de poudre -- \ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} : Système de dépose de poudre -- \ifprof Corrigé \else Sujet \fi}
-
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
-\fi
-
-\setcounter{question}{0}
-\marginnote{Concours Centrale Supelec -- TSI 2016}
-\marginnote[1cm]{
-\UPSTIcompetence[2]{C1-05}
-\UPSTIcompetence[2]{C2-08}}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{ \ifprof \normalsize{TD 1 -- Corrigé } \else  \ifcolle Colle \else TD 1\fi \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
 
-\begin{marginfigure} [4cm]
-\includegraphics[width=\linewidth]{fig_01}
-\end{marginfigure}
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Approche énergétique}
+
+\def\xxcompetences{%
+\footnotesize{
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\vspace{-.2cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item Mod2.C18.SF1 : Déterminer l’énergie cinétique d’un solide, ou d’un ensemble de solides, dans son mouvement par rapport à un autre solide.
+\item Res1.C1.SF1 : Proposer une démarche permettant la détermination de la loi de mouvement.
+%\item Mod1.C5.SF2 : Déterminer la puissance des actions mécaniques extérieures à un solide ou à un ensemble de solides, dans son mouvement rapport à un autre solide.
+%\item Mod1.C5.SF3 : Déterminer la puissance des actions mécaniques intérieures à un ensemble de solides.
+\end{itemize}}}}
 
 
+\def\xxtitreexo{Système de dépose de poudre}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Concours Centrale Supelec -- TSI 2016}}
+
+\def\xxfigures{
+\includegraphics[width=.8\textwidth]{fig_01}
+}%figues de la page de garde
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
 
 
+\vspace{5.2cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+
+%\ifprof
+%\else
+\begin{multicols}{2}
+%\fi
 \section*{Mise en situation}
 \ifprof
 \else
 On s'intéresse à un système permettant de créer des motifs sur de la poudre de maquillage compactée. Le poste de pulvérisation est en partie constitué d'un robot cartésien 3 axes permettant de déplacer des godets de poudre compactée (grâce à un préhenseur) en dessous de la buse de pulvérisation. 
 
 \begin{center}
-\includegraphics[width=.7\linewidth]{fig_02}
+\includegraphics[width=\linewidth]{fig_02}
 \end{center}
 
 \fi
@@ -44,9 +71,9 @@ Le cahier des charges impose que la vitesse maximale du chariot sur l’axe $\ve
 \else
 La transmission est réalisée de la façon suivante. L'arbre 1 est entrainé par un moto-réducteur dont le raport de réduction est noté $r$. 
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=\linewidth]{fig_05}
-\end{marginfigure}
+\end{center}
 
 \noindent\textbf{Notations}
 \begin{itemize}
@@ -138,3 +165,6 @@ Le concepteur du système a choisi un moteur synchrone de vitesse nominale de $\
 \else
 \fi
 
+
+
+\end{multicols}

@@ -1,25 +1,56 @@
-%\setchapterimage{bandeau}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{ \ifprof \normalsize{TD 2 -- Corrigé } \else  \ifcolle Colle \else TD 2\fi \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
-\chapter*{TD \arabic{cptTD} \\ 
-Quille pendulaire \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi -- \ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} : Quille pendulaire \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi  -- \ifprof Corrigé \else Sujet \fi}
 
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Approche énergétique}
+
+\def\xxcompetences{%
+\footnotesize{
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\vspace{-.2cm}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item Mod2.C18.SF1 : Déterminer l’énergie cinétique d’un solide, ou d’un ensemble de solides, dans son mouvement par rapport à un autre solide.
+\item Res1.C1.SF1 : Proposer une démarche permettant la détermination de la loi de mouvement.
+%\item Mod1.C5.SF2 : Déterminer la puissance des actions mécaniques extérieures à un solide ou à un ensemble de solides, dans son mouvement rapport à un autre solide.
+%\item Mod1.C5.SF3 : Déterminer la puissance des actions mécaniques intérieures à un ensemble de solides.
+\end{itemize}}}}
+
+
+\def\xxtitreexo{Quille pendulaire \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi }
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Concours Commun Mines Ponts 2014}}
+
+\def\xxfigures{
+\includegraphics[width=.6\textwidth]{fig_01}
+}%figues de la page de garde
+
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\vspace{5.2cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+
+
+\ifprof
+%\begin{multicols}{2}
+\else
+\begin{multicols}{2}
 \fi
-
-\setcounter{question}{0}
-\marginnote{Concours Commun Mines Ponts 2014.}
-\marginnote{
-\UPSTIcompetence[2]{C1-05}
-\UPSTIcompetence[2]{C2-08}}
-
-
-\begin{marginfigure} [2cm]
-\includegraphics[width=\linewidth]{fig_01}
-\end{marginfigure}
-
-
 
 \section*{Mise en situation}
 \ifprof
@@ -35,11 +66,11 @@ Les actions de l'air et de l'eau permettent au voilier d'avancer mais provoquent
 
 Une évolution récente des voiliers de course océanique a été de les doter d’une quille pendulaire. Cette quille est en liaison pivot d’axe $\left(O,\vect{z}_N \right)$ avec la coque du navire et peut être orientée d’un côté ou de l’autre du navire. Une fois l’orientation désirée obtenue, tout mouvement dans la liaison pivot est supprimé par le blocage en rotation de celle-ci. 
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_03}
+\begin{center}
+\includegraphics[width=.6\linewidth]{fig_03}
 
-\caption{Modèle volumique 3D}
-\end{marginfigure}
+\textit{Modèle volumique 3D}
+\end{center}
 %Cette quille est généralement constituée d’un voile immergé dans l’eau à l’extrémité duquel se trouve un lest profilé. L’efficacité de la quille dépend de la masse du lest et de la longueur du voile. Ces deux paramètres présentent des limitations : le lest ne peut être trop important sous peine de solliciter dangereusement le voile de quille et la longueur de quille est limitée par le tirant d’eau maximal admissible (il faut permettre l’entrée dans les ports sans toucher le fond !).
 
 
@@ -84,28 +115,24 @@ $F_{h3} = 0$. Le vérin 2--4 est alors moteur et le vérin 3--5 est libre ($F_{h
 %\item Les conditions de déplacement rendent négligeables les effets dynamiques. Les théorèmes de la statique seront donc utilisés dans la suite.
 \end{itemize}
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_05_a}
+Le modèle de calcul est donné dans les figures suivantes.
 
-\caption{Modèle 2D}
-\end{marginfigure}
+\begin{center}
+\includegraphics[width=.7\linewidth]{fig_05_a}
 
+\textit{Modèle 2D}
+\end{center}
 
-
-Le modèle de calcul est donné dans les figures ci-contre.
-
-\begin{figure}[!h]
+\begin{center}
 \includegraphics[width=\linewidth]{fig_05_b}
 
-\caption{Paramétrage}
-\end{figure}
+\textit{Paramétrage}
+\end{center}
 
-\newpage
-
-\begin{figure*}[!h]
+\textbf{Données géométriques, massiques et inertielles}
 \begin{multicols}{2}
 \footnotesize
-\textbf{Données géométriques, massiques et inertielles}
+
 $\vect{OA}=R\vect{y_1}$; $\vect{CA}=x_{24}(t)\vect{x_2}$; $\vect{AB}=x_{35}(t)\vect{x_3}$, 
 \begin{itemize}
 \item Solide 1, masse $M_1$, centre d'inertie $G_1$, $\vect{OG_1}=-L_1\vect{y_1}$, $\inertie{G_1}{1}=\matinertie{A_1}{B_1}{C_1}{-D_1}{0}{0}{\left(\vect{x_1},\vect{y_1},\vect{z_N}, \right)}$.
@@ -114,11 +141,13 @@ $\vect{OA}=R\vect{y_1}$; $\vect{CA}=x_{24}(t)\vect{x_2}$; $\vect{AB}=x_{35}(t)\v
 \item Solide 4, masse $M_4$, centre d'inertie $C$, $\inertie{C}{4}=\matinertie{A_4}{B_4}{C_4}{0}{0}{0}{\left(\vect{x_2},\vect{y_2},\vect{z_N}, \right)}$.
 \item Solide 5, masse $M_5$, centre d'inertie $B$, $\inertie{B}{5}=\matinertie{A_5}{B_5}{C_5}{0}{0}{0}{\left(\vect{x_3},\vect{y_3},\vect{z_N}, \right)}$.
 \end{itemize}
+\normalsize
 
+\end{multicols}
 
 \textbf{Actions mécaniques}
 
-
+\footnotesize
 \begin{itemize}
 \item Action de pression de l'huile sur 2 : $\torseurstat{T}{\text{ph}}{2}=\torseurl{F_{h2}\vect{x_2}}{\vect{0}}{C}$.
 \item Action de pression de l'huile sur 3 : $\torseurstat{T}{\text{ph}}{3}=\torseurl{-F_{h3}\vect{x_3}}{\vect{0}}{B}$.
@@ -126,10 +155,8 @@ $\vect{OA}=R\vect{y_1}$; $\vect{CA}=x_{24}(t)\vect{x_2}$; $\vect{AB}=x_{35}(t)\v
 \item Action de frottement visqueux de l'huile sur 3 : $\torseurstat{T}{\text{phf}}{3}=\torseurl{-k\dfrac{\dd x_{35}(t)}{\dd t}\vect{x_3}}{\vect{0}}{A}$ avec $k>0$.
 \item Action hydraudynamique de l'eau sur 1 : $\torseurstat{T}{\text{eau}}{1}=\torseurl{F_p\vect{z_1}+F_t\vect{x_1}}{\vect{0}}{P}$ avec $\vect{OP}=-h\vect{y_1}$.
 \end{itemize}
-\normalsize
-\end{multicols}
-\end{figure*}
 
+\normalsize
 %
 %\begin{center}
 %\includegraphics[width=\linewidth]{fig_04}
@@ -344,10 +371,10 @@ est libre. Cette commande <<~en trapèze de vitesse~>>  provoque le déplacement
  retour à la position $\theta_1=0$ en 4 secondes. Les phases d’accélération et de décélération (rampes) durent 1 seconde.
 
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_06}
+\begin{center}
+\includegraphics[width=.6\linewidth]{fig_06}
 %\textit{Paramétrage}
-\end{marginfigure}
+\end{center}
 
 Un logiciel de calcul permet de tracer l’évolution temporelle des puissances mises en jeu. Ces puissances sont
 représentées sur la figure suivante. 
@@ -395,8 +422,7 @@ les algues collées qui rajoutent du poids...
 \else
 \ifcolle
 \else
-
-\begin{solution}
+Eléments de correction : 
 \begin{enumerate}
 \item .
 \item 
@@ -433,7 +459,13 @@ On a aussi $\vectv{G_3}{3}{N}= - \dot{x}_{35}(t)  \vect{x_3}+\dot{\theta}_3\left
 \end{itemize}
 \item $\pext{\bar{E}}{E}{R_N} + \sum \pint{i}{j}{}=\dfrac{\dd \ec{E}{R_N}}{\dd t}$.
 \end{enumerate}
-\end{solution}
 \fi
 \fi
+
+\ifprof
+%\end{multicols}
+\else
+\end{multicols}
+\fi
+
 

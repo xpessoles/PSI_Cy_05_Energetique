@@ -1,24 +1,52 @@
-%\setchapterimage{bandeau}
+%%%% Paramétrage du TD %%%%
+\def\xxactivite{ \ifprof {TD 4 -- Corrigé } \else  \ifcolle Colle \else  TD 4\fi \fi} % \normalsize \vspace{-.4cm}
+\def\xxauteur{\textsl{Émilien Durif}}
 
-\chapter*{TD \arabic{cptTD} \\ 
-Robot de dépose de fibres optiques \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi -- \ifprof Corrigé \else Sujet \fi}
-\addcontentsline{toc}{section}{TD \arabic{cptTD} : Robot de dépose de fibres optiques \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \else \fi  -- \ifprof Corrigé \else Sujet \fi}
 
-\iflivret \stepcounter{cptTD} \else
-\ifprof  \stepcounter{cptTD} \else \fi
+\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Approche énergétique}
+
+\def\xxcompetences{%
+\footnotesize{
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item Mod2.C18.SF1 : Déterminer l’énergie cinétique d’un solide, ou d’un ensemble de solides, dans son mouvement par rapport à un autre solide.
+\item Res1.C1.SF1 : Proposer une démarche permettant la détermination de la loi de mouvement.
+%\item Mod1.C5.SF2 : Déterminer la puissance des actions mécaniques extérieures à un solide ou à un ensemble de solides, dans son mouvement rapport à un autre solide.
+%\item Mod1.C5.SF3 : Déterminer la puissance des actions mécaniques intérieures à un ensemble de solides.
+\end{itemize}}}}
+
+\def\xxtitreexo{Robot de dépose de fibres optiques}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{Mines Ponts -- PSI --  2004}}
+
+\def\xxfigures{
+\includegraphics[width=.7\linewidth]{robot_photo.pdf}
+}%figues de la page de garde
+
+\input{\repRel/Style/pagegarde_TD}
+\setcounter{numques}{0}
+
+\setlength{\columnseprule}{.1pt}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\vspace{5.2cm}
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{exo}{0}
+
+\ifprof
+%\begin{multicols}{2}
+\else
+\begin{multicols}{2}
 \fi
-
-\setcounter{question}{0}
-\marginnote{Concours Mines Ponts -- PSI 2004.}
-\marginnote{
-\UPSTIcompetence[2]{C1-05}
-\UPSTIcompetence[2]{C2-08}}
-
-
-\begin{marginfigure} [2cm]
-\includegraphics[width=\linewidth]{robot_photo.pdf}
-\end{marginfigure}
-
 
 \subsection*{Présentation}
 \ifprof
@@ -36,13 +64,11 @@ En fin des mouvements des bras, on doit avoir $\delta=14\degres$ et $\dot{\delta
 \ifprof
 \else
 
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{chariot_centrage1.pdf}
-\end{marginfigure}
-
-
 De façon à pouvoir dérouler les arceaux métalliques, le chariot est centré dans la canalisation à l'aide de quatre bras actionnés par un vérin hydraulique.
+
+\begin{center}
+\includegraphics[width=\linewidth]{chariot_centrage1.pdf}
+\end{center}
 
 
 Afin de valider le choix du vérin, et donc sa puissance, il faut déterminer l'action $F$ du vérin
@@ -57,10 +83,10 @@ contact avec la paroi de la canalisation.
 À un instant $t$, le système est modélisé selon le schéma ci-dessous :
 
 
-\begin{marginfigure}
+\begin{center}
 \includegraphics[width=0.9\linewidth]{chariot_centrage2.pdf}
 %\caption{Modélisation du robot \label{robot_model}}
-\end{marginfigure}
+\end{center}
 \fi
 
 \subsection*{Hypothèses}
@@ -331,5 +357,13 @@ Cette valeur de l'effort n'est pas satisfaisante.
 \end{tabular}
 \fi
 
+\fi
+
+
+
+\ifprof
+%\end{multicols}%
+\else
+\end{multicols}%
 \fi
 
