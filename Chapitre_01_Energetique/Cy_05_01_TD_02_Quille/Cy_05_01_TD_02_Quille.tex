@@ -15,7 +15,7 @@ Quille pendulaire \ifnormal $\star$ \else \fi \iftdifficile $\star\star\star$ \e
 \UPSTIcompetence[2]{C2-08}}
 
 
-\begin{marginfigure} [2cm]
+\begin{marginfigure} %[2cm]
 \includegraphics[width=\linewidth]{fig_01}
 \end{marginfigure}
 
@@ -36,7 +36,8 @@ Les actions de l'air et de l'eau permettent au voilier d'avancer mais provoquent
 Une évolution récente des voiliers de course océanique a été de les doter d’une quille pendulaire. Cette quille est en liaison pivot d’axe $\left(O,\vect{z}_N \right)$ avec la coque du navire et peut être orientée d’un côté ou de l’autre du navire. Une fois l’orientation désirée obtenue, tout mouvement dans la liaison pivot est supprimé par le blocage en rotation de celle-ci. 
 
 \begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_03}
+\centering
+\includegraphics[width=.8\linewidth]{fig_03}
 
 \caption{Modèle volumique 3D}
 \end{marginfigure}
@@ -68,6 +69,13 @@ par le constructeur.
 
 \textbf{Hypothèses}
 
+
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{fig_05_a}
+
+\caption{Modèle 2D}
+\end{marginfigure}
+
 \begin{itemize}
 \item Les liaisons sont toutes parfaites.
 \item Le bateau est à l’arrêt et son repère $R_N$ est galiléen.
@@ -84,18 +92,12 @@ $F_{h3} = 0$. Le vérin 2--4 est alors moteur et le vérin 3--5 est libre ($F_{h
 %\item Les conditions de déplacement rendent négligeables les effets dynamiques. Les théorèmes de la statique seront donc utilisés dans la suite.
 \end{itemize}
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_05_a}
-
-\caption{Modèle 2D}
-\end{marginfigure}
-
 
 
 Le modèle de calcul est donné dans les figures ci-contre.
 
 \begin{figure}[!h]
-\includegraphics[width=\linewidth]{fig_05_b}
+\includegraphics[width=.7\linewidth]{fig_05_b}
 
 \caption{Paramétrage}
 \end{figure}
@@ -337,6 +339,10 @@ fonction des données du problème. La méthode sera précisément décrite. Cha
 \ifprof
 \else
 
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{fig_06}
+%\textit{Paramétrage}
+\end{marginfigure}
 
 On se place dans le cas où une commande en vitesse est générée à destination du vérin [2, 4]. Le vérin [3, 5]
 est libre. Cette commande <<~en trapèze de vitesse~>>  provoque le déplacement de la quille de la position $\theta_1=0$
@@ -344,18 +350,15 @@ est libre. Cette commande <<~en trapèze de vitesse~>>  provoque le déplacement
  retour à la position $\theta_1=0$ en 4 secondes. Les phases d’accélération et de décélération (rampes) durent 1 seconde.
 
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{fig_06}
-%\textit{Paramétrage}
-\end{marginfigure}
+
 
 Un logiciel de calcul permet de tracer l’évolution temporelle des puissances mises en jeu. Ces puissances sont
-représentées sur la figure suivante. 
+représentées sur la figure \ref{fig:07}. 
 
-\begin{center}
+\begin{figure}%[H]
 \includegraphics[width=.7\linewidth]{fig_07}
-%\textit{Paramétrage}
-\end{center}
+\caption{Evolution temporelle des puissances\label{fig:07}}
+\end{figure}
 
 \fi
 

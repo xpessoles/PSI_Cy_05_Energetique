@@ -48,6 +48,15 @@ On donne le paramétrage et les données nécessaires pour cette modélisation.
 \end{center}
 
 
+\marginnote{\textbf{Masses et inerties : }
+\begin{itemize}
+\item le moment d'inertie du rotor moteur autour de son axe $\axe{A}{y_0}$ : $J_m =\SI{6e-3}{kg.m^2}$;
+\item le moment d'inertie d'une roue autour de son axe $\axe{O_i}{y_0}$ : $J_R =\SI{0,1}{kg.m^2}$ (masse de la roue négligée);
+\item la masse du véhicule en charge : $m=\SI{685}{kg}$;
+\item le centre de gravité du véhicule en charge sera noté $G$;
+\item les autres inerties seront négligées.
+\end{itemize}}
+
 \textbf{Hypothèses générales : }
 \begin{itemize}
 \item le vecteur $\vect{z_0}$ est vertical ascendant et on notera $g$ l'accélération de la pesanteur;
@@ -69,14 +78,7 @@ est :
 $\torseurstat{T}{s}{i}=\torseurl{T_i\vect{x_s}+N_i\vect{z_s}}{\vect{0}}{J_i}$ avec $J_i \in \left(O,\vect{x_s},\vect{y_s}\right)$ et $i=1$ (roues arrières) ou 2 (roues avants). Le moteur permet d'appliquer un couple en 3 et 4 tel que 
 $\torseurstat{T}{3}{4}=\torseurl{\vect{0}}{C_m\vect{y_0}}{-}$. 
 
-\textbf{Masses et inerties : }
-\begin{itemize}
-\item le moment d'inertie du rotor moteur autour de son axe $\axe{A}{y_0}$ : $J_m =\SI{6e-3}{kg.m^2}$;
-\item le moment d'inertie d'une roue autour de son axe $\axe{O_i}{y_0}$ : $J_R =\SI{0,1}{kg.m^2}$ (masse de la roue négligée);
-\item la masse du véhicule en charge : $m=\SI{685}{kg}$;
-\item le centre de gravité du véhicule en charge sera noté $G$;
-\item les autres inerties seront négligées.
-\end{itemize}
+
 
 \textbf{Grandeurs cinématiques :}
 Soit $\omega_m$ la vitesse de rotation de l’arbre moteur 4 par rapport à 3, $\omega_{13}$ la vitesse de rotation des roues arrière 1 par rapport à 3 et $\omega_{23}$ la vitesse de rotation des roues avant 2 par rapport à 3.
@@ -84,6 +86,13 @@ Soit $\omega_m$ la vitesse de rotation de l’arbre moteur 4 par rapport à 3, $
 On notera $r$ le rapport de transmission du réducteur tel que $\omega_m = r \omega_{13}$. On appellera $\vectv{G}{3}{0}=\vect{V}_{3/0}=v\vect{x_s}$la vitesse du véhicule.
 Les roues ont un rayon $R = \SI{280}{mm}$.
 
+\marginnote{
+\textbf{Notations :}
+\begin{itemize}
+\item puissance extérieure des actions mécaniques du solide $i$ sur le solide $j$ dans le mouvement de $i$ par rapport à 0 : $\mathcal{P}\left( i \to j / 0\right)$;
+\item puissance intérieure des actions mécaniques entre le solide $i$ et le solide $j$: $\mathcal{P}\left( i \leftrightarrow j\right)$ ;
+\item énergie cinétique du solide $i$ dans son mouvement par rapport à 0 : $\mathcal{E}_c\left(i/0\right)$.
+\end{itemize}}
 
 \subsubsection*{Choix de l’ensemble moto-réducteur}
 \subsubsection*{Équation de mouvement du véhicule}
@@ -93,14 +102,9 @@ Les roues ont un rayon $R = \SI{280}{mm}$.
 Objectif : Déterminer l’équation de mouvement nécessaire pour choisir l’ensemble moto-réducteur.
 \end{obj}
 
-\textbf{Notations :}
-\begin{itemize}
-\item puissance extérieure des actions mécaniques du solide $i$ sur le solide $j$ dans le mouvement de $i$ par rapport à 0 : $\mathcal{P}\left( i \to j / 0\right)$;
-\item puissance intérieure des actions mécaniques entre le solide $i$ et le solide $j$: $\mathcal{P}\left( i \leftrightarrow j\right)$ ;
-\item énergie cinétique du solide $i$ dans son mouvement par rapport à 0 : $\mathcal{E}_c\left(i/0\right)$.
-\end{itemize}
 
-\question{Il es démandé de : 
+
+\question{Il est démandé de : 
 \begin{itemize}
 \item écrire la forme générale du théorème de l’énergie puissance appliqué au véhicule en identifiant les différentes puissances extérieures, les différentes puissances intérieures et les énergies cinétiques des différents éléments mobiles en respectant les notations précédentes ;
 \item déterminer explicitement les différentes puissances extérieures ;
@@ -151,9 +155,9 @@ résistance au roulement $\mu$. Proposer un protocole expérimental pour l’év
 \else
 \fi
 
-\begin{center}
-\includegraphics[width=.7\linewidth]{fig_04}
-\end{center}
+\begin{marginfigure}
+\includegraphics{fig_04}%[width=.7\linewidth]{fig_04}
+\end{marginfigure}
 
 
 \subsubsection*{Choix du moto-réducteur}
